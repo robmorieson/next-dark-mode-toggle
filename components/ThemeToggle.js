@@ -20,7 +20,16 @@ const ToggleButton = styled.button`
   border-radius: calc(var(--toggle-width) / 2);
   cursor: pointer;
   background: var(--color-bg-toggle);
-  transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  &:focus {
+    outline-offset: 5px;
+  }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  &:hover {
+    box-shadow: 0 0 5px 2px var(--color-bg-toggle);
+  },
 `;
 
 const ToggleThumb = styled.span`
