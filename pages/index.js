@@ -1,7 +1,11 @@
 // pages/index.js
 
+import dynamic from "next/dynamic";
 import styled from "@emotion/styled";
-import ThemeToggle from "../components/ThemeToggle";
+
+const ThemeToggle = dynamic(() => import("../components/ThemeToggle"), {
+  ssr: false,
+});
 
 const Container = styled.div`
   display: flex;
