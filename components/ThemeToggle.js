@@ -50,8 +50,15 @@ const ToggleThumb = styled.span`
 const ThemeToggle = () => {
   const [currentTheme, setCurrentTheme] = useState("light");
   const inactiveTheme = currentTheme === "light" ? "dark" : "light";
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("theme");
+    savedTheme && setCurrentTheme(savedTheme);
+  }, []);
+
   useEffect(() => {
     document.body.dataset.theme = currentTheme;
+    window.localStorage.setItem("theme", currentTheme);
   }, [currentTheme]);
   return (
     <ToggleButton
