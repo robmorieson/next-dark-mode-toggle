@@ -1,7 +1,10 @@
 {
   "name": "next-dark-mode-toggle",
-  "version": "0.1.0",
+  "description": "Next.js dark/light mode toggle",
+  "version": "1.0.0",
   "private": true,
+  "author": "Rob Morieson <rob@electricanimals.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
