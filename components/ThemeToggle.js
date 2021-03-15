@@ -45,7 +45,12 @@ const ThemeToggle = () => {
     document.body.dataset.theme = currentTheme;
   }, [currentTheme]);
   return (
-    <ToggleButton type="button" onClick={() => setCurrentTheme(inactiveTheme)}>
+    <ToggleButton
+      aria-label={`Change to ${inactiveTheme} mode`}
+      title={`Change to ${inactiveTheme} mode`}
+      type="button"
+      onClick={() => setCurrentTheme(inactiveTheme)}
+    >
       <ToggleThumb currentTheme={currentTheme} />
       <span>🌙</span>
       <span>☀️</span>
