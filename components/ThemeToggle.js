@@ -42,27 +42,27 @@ const ToggleThumb = styled.span`
   background: white;
   transition: transform 0.25s ease-in-out;
   transform: ${(p) =>
-    p.currentTheme === "dark"
+    p.activeTheme === "dark"
       ? "translate3d(calc(var(--toggle-width) - var(--toggle-height)), 0, 0)"
       : "none"};
 `;
 
 const ThemeToggle = () => {
-  const [currentTheme, setCurrentTheme] = useState(document.body.dataset.theme);
-  const inactiveTheme = currentTheme === "light" ? "dark" : "light";
+  const [activeTheme, setActiveTheme] = useState(document.body.dataset.theme);
+  const inactiveTheme = activeTheme === "light" ? "dark" : "light";
 
   useEffect(() => {
-    document.body.dataset.theme = currentTheme;
-    window.localStorage.setItem("theme", currentTheme);
-  }, [currentTheme]);
+    document.body.dataset.theme = activeTheme;
+    window.localStorage.setItem("theme", activeTheme);
+  }, [activeTheme]);
   return (
     <ToggleButton
       aria-label={`Change to ${inactiveTheme} mode`}
       title={`Change to ${inactiveTheme} mode`}
       type="button"
-      onClick={() => setCurrentTheme(inactiveTheme)}
+      onClick={() => setActiveTheme(inactiveTheme)}
     >
-      <ToggleThumb currentTheme={currentTheme} />
+      <ToggleThumb activeTheme={activeTheme} />
       <span>🌙</span>
       <span>☀️</span>
     </ToggleButton>
